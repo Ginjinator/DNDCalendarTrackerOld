@@ -10,7 +10,7 @@ public class Main {
         int daysPassed;
 
         System.out.println("Current date: " + calendar.getMonthName(calendar.getCurrentMonth()) + "/"
-                                            + calendar.getCurrentDay());
+                                            + calendar.getCurrentDay() + "/" + calendar.getCurrentYear());
         System.out.println("How many days passed this session?: ");
         daysPassed = kb.nextInt();
         calendar.setCurrentDay(calendar.getCurrentDay() + daysPassed);
@@ -20,10 +20,19 @@ public class Main {
             int newDaysPassed = daysPassed % calendar.getEndOfMonth();
             calendar.setCurrentDay(originalDay + newDaysPassed);
             int monthsPassed = (daysPassed - newDaysPassed)/calendar.getEndOfMonth();
-            calendar.setCurrentMonth(calendar.getCurrentMonth() + monthsPassed);
+            //test to see if year ended
+            if (monthsPassed == 12) {
+                calendar.setCurrentYear(calendar.getCurrentYear() + 1);
+                calendar.setCurrentMonth(calendar.getCurrentMonth());
+            } else if (monthsPassed > 12){
+                calendar.setCurrentYear(calendar.getCurrentYear() + (monthsPassed/12));
+                calendar.setCurrentMonth(calendar.getCurrentMonth() + (monthsPassed % 12));
+            } else {
+                calendar.setCurrentMonth(calendar.getCurrentMonth() + monthsPassed);
+            }
         }
 
         System.out.println("New date: " + calendar.getMonthName(calendar.getCurrentMonth()) + "/"
-                                        + calendar.getCurrentDay());
+                                        + calendar.getCurrentDay() + "/" + calendar.getCurrentYear());
     }
 }
