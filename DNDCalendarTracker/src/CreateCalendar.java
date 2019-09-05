@@ -6,6 +6,7 @@ public class CreateCalendar {
     private final int endOfMonth = 30;
     private int currentDay = 0;
     private int currentMonth = 0;
+    private int currentYear = 749;
 
     public CreateCalendar() {
         currentDay = 1;
@@ -43,6 +44,14 @@ public class CreateCalendar {
 
     public String getMonthName(int current){
         return months[currentMonth];
+    }
+    
+    public int getCurrentYear(){
+        return this.currentYear;
+    }
+
+    public void setCurrentYear(int newYear){
+        this.currentYear = newYear;
     }
 
 }
