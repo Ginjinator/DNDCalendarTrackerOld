@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class CreateCalendar {
 
-    private FileWriter myFile = new FileWriter("currentdate");
+    private FileWriter myFile = new FileWriter("currentdate.txt");
     private String[] months = {"Harnen", "Chay", "Anderik", "Miretorn", "Elarin", "Trakerule",
             "Mareasis", "Ulntar", "Krythrin", "Niilhin", "Eas", "Faldient"};
 
@@ -22,7 +22,7 @@ public class CreateCalendar {
     }
 
     public CreateCalendar() throws IOException {
-        File file = new File("C:\\Users\\erike\\IdeaProjects\\DNDCalendarTracker\\DNDCalendarTracker\\currentdate.txt");
+        File file = new File("C:\\Users\\erike\\IdeaProjects\\DNDCalendarTracker\\currentdate.txt");
         try {
             String line0 = Files.readAllLines(Paths.get("currentdate.txt")).get(0);
             currentMonth = Integer.parseInt(line0);
